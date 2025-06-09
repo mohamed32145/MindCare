@@ -14,7 +14,7 @@ The **Alzheimer’s Disease Neuroimaging Initiative (ADNI1)** dataset is a highl
 For this project, we will use:
 
 * **Longitudinal 1.5T structural MRI scans**
-* **Cognitive and clinical assessment data**
+
 
 These data types will be **combined** to provide a more holistic view of patient trajectories, improving the model’s predictive power.
 
@@ -24,20 +24,10 @@ These data types will be **combined** to provide a more holistic view of patient
 
 ###  MRI Data:
 
-* **Skull Stripping** using FSL BET to isolate brain regions.
+* **Skull Stripping** using SynthStrip to isolate brain regions.
 * **Bias Field Correction** (if required) using ANTs or SimpleITK.
-* **Resampling** to a common voxel size (e.g., 1x1x1 mm³) for spatial uniformity.
-* **Reshaping** all images to a fixed 3D shape (e.g., 128×128×128).
-* **Longitudinal Registration** to align scans across time points for each subject.
 
-###  Tabular (Clinical) Data:
 
-* **Numerical Features**: Standardization or min-max normalization.
-* **Categorical Features**: One-hot encoding or label encoding.
-
-All preprocessing is performed with automation scripts and quality control checkpoints.
-
----
 
 ##  Proposed Model Architecture
 
@@ -48,13 +38,8 @@ The model will adopt a **multi-modal, temporal-aware architecture** that integra
 * **2D/3D Convolutional Neural Networks (CNNs)** to extract spatial features.
 * **LSTM (Long Short-Term Memory)** layers to model temporal progression across multiple visits.
 
-###  Cognitive & Clinical Modality:
 
-* **LSTM or MLP (Multi-Layer Perceptron)** networks to process time-sequenced clinical records.
 
-###  Fusion:
-
-* Feature embeddings from both modalities will be **fused** (concatenation or attention-based fusion) before the final classification layer.
 
 ---
 
