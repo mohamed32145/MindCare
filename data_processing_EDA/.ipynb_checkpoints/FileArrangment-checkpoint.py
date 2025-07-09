@@ -2,6 +2,47 @@ import os
 import shutil
 from datetime import datetime
 
+"""
+---
+
+**Step 1: Data Organization**
+
+The dataset was first organized into the following diagnostic groups:
+
+* **CN** (Cognitively Normal)
+* **MCI** ( Mild Cognitive Impairment)
+* **AD** (Alzheimer’s Disease)
+---
+
+ Image Selection Criteria
+
+ For the AD and CN groups:
+
+* We retained only the images with the following preprocessing pipeline:
+  `MPR-R__GradWarp__B1_Correction__N3__Scaled` or
+  `MPR__GradWarp__B1_Correction__N3__Scaled`.
+
+* Images labeled with `*_scaled_2*` were removed.
+  These images were adjusted to disable scaling on axes where the phantom's measurements are considered unreliable.
+  While `*_scaled_2*` images may offer higher accuracy, they are significantly fewer in number and **cannot be mixed** with the standard `*_scaled*` images for model training due to consistency issues.
+
+---
+
+ For the MCI
+
+* Due to the limited availability of subjects in these groups, we included:
+
+  * `MPR-R__GradWarp__B1_Correction__N3__Scaled`
+  * `MPR__GradWarp__B1_Correction__N3__Scaled`
+  * `MPR__GradWarp__N3__Scaled`
+
+* Subjects with only `MPR__GradWarp__N3__Scaled` images will undergo additional preprocessing, specifically:
+
+  *Bias field correction, to reduce intensity non-uniformity and improve image quality before training.
+
+
+ """
+
 def delete_scaled_2_folders_in_group(parent_folder_path, group_name):
     """
     Deletes all folders ending with 'Scaled_2' inside subject folders within a given group folder on the local filesystem.
