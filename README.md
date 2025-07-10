@@ -3,7 +3,7 @@
 
 ##  Project Objective
 
-This project aims to assist clinicians in the **early detection of Alzheimer’s Disease (AD)** by predicting the **conversion from Mild Cognitive Impairment (MCI) to AD** using a **multi-modal deep learning approach**. Accurate and early prediction can improve treatment planning, monitoring, and quality of life for patients at risk.
+This project aims to assist clinicians in the **early detection of Alzheimer’s Disease (AD)** using a ** deep learning approach**. Accurate and early prediction can improve treatment planning, monitoring, and quality of life for patients at risk.
 
 ---
 
@@ -13,11 +13,11 @@ The **Alzheimer’s Disease Neuroimaging Initiative (ADNI1)** dataset is a highl
 
 For this project, we will use:
 
-* **Longitudinal 1.5T structural MRI scans**
-
+* ** 1.5T 3D structural MRI scans**
 
 These data types will be **combined** to provide a more holistic view of patient trajectories, improving the model’s predictive power.
 
+You can get permission to access the data from https://adni.loni.usc.edu/
 ---
 
 ##  Data Preprocessing
@@ -27,25 +27,18 @@ These data types will be **combined** to provide a more holistic view of patient
 * **Skull Stripping** using SynthStrip to isolate brain regions.
 * **Bias Field Correction** (if required) using ANTs or SimpleITK.
 
+* after downloading the data you can import the functions from FileArrangement.py file to organize and delete the unnecessary MRI pictures 
 
-
-##  Proposed Model Architecture
-
-The model will adopt a **multi-modal, temporal-aware architecture** that integrates imaging and clinical data.
 
 ###  MRI Modality:
 
-* **2D/3D Convolutional Neural Networks (CNNs)** to extract spatial features.
-* **LSTM (Long Short-Term Memory)** layers to model temporal progression across multiple visits.
-
-
-
+* **3D Convolutional Neural Networks (CNNs)** to extract spatial features.
 
 ---
 
 ##  Target Outcome
 
-* **Binary classification**: Convert from MCI to AD vs. remain stable.
+* **Binary classification**:  CN vs AD 
 * **Evaluation Metrics**: Accuracy, AUC-ROC, Precision, Recall, F1-score.
 
 ---
@@ -53,7 +46,7 @@ The model will adopt a **multi-modal, temporal-aware architecture** that integra
 ##  Tools & Libraries
 
 * **MRI Processing**: FSL, nibabel, SimpleITK, ANTs
-* **Modeling**: PyTorch / TensorFlow
+* **Modeling**:  TensorFlow
 * **Data Handling**: pandas, NumPy
 * **Visualization**: matplotlib, seaborn, NiBabel viewers
 
