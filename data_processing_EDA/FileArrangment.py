@@ -28,7 +28,7 @@ The dataset was first organized into the following diagnostic groups:
 
 ---
 
- For the MCI
+ For the sMCI and pMCI groups:
 
 * Due to the limited availability of subjects in these groups, we included:
 
@@ -145,11 +145,12 @@ def clean_subjects_with_mpr(root_dirs):
 
 
 def process_subjects_for_mpr(root_dirs):
-    """
-    now for the MCI groups we will keep the MPR-R/MPR__GradWarp__B1_Correction__N3__Scaled
-    and the  MPR__GradWarp__N3__Scaled we be saved in a new subfolder to be bias corrected later
+    
+"""
+now for the pMCI , sMCI groups we will keep the MPR-R/MPR__GradWarp__B1_Correction__N3__Scaled
+and the  MPR__GradWarp__N3__Scaled we be saved in a new subfolder to be bias corrected later
 
-   """
+"""
     keep_folders = {
         "MPR__GradWarp__B1_Correction__N3__Scaled",
         "MPR-R__GradWarp__B1_Correction__N3__Scaled"
@@ -205,6 +206,11 @@ def organize_timepoints(source_root, destination_root):
     Args:
         source_root (str): Path to root folder containing groups (e.g., AD, CN, MCI).
         destination_root (str): Path to write organized timepoints (e.g., timepoint_1, timepoint_2).
+        
+        example use :
+        input_groups = ["pMCI", "sMCI","AD", "CN","NeedsBiasPreprocessingPmci","NeedsBiasPreprocessingSmci"]
+        source_root = r"C:\ADNI"
+        destination_root = r"C:\ADNI_Sorted" 
     """
     input_groups = [g for g in os.listdir(source_root) if os.path.isdir(os.path.join(source_root, g))]
 
