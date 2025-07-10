@@ -27,7 +27,8 @@ You can get permission to access the data from https://adni.loni.usc.edu/
 * **Skull Stripping** using SynthStrip to isolate brain regions.
 * **Bias Field Correction** (if required) using ANTs or SimpleITK.
 
-* after downloading the data you can import the functions from FileArrangement.py file to organize and delete the unnecessary MRI pictures 
+* after downloading the data you can import the functions from FileArrangement.py file to organize and delete the unnecessary MRI pictures
+* https://github.com/mohamed32145/MindCare/blob/main/data_processing_EDA/FileArrangment.py
 
 
 ###  MRI Modality:
