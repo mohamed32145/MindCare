@@ -1,5 +1,5 @@
 
-# 🧠 Early Detection of Alzheimer’s Disease Using Multi-Modal Deep Learning
+# 🧠 Early Detection of Alzheimer’s Disease Using 3D CNN Deep Learning model
 
 ##  Project Objective
 
